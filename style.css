@@ -16,7 +16,7 @@ body {
 }
 
 body.show-background {
-    background-image: url('your-background-image.jpg'); /* <-- Put your new image file name here */
+    background-image: url('background-image.jpg'); /* <-- Put your new image file name here */
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -310,5 +310,6 @@ input[type="range"]::-moz-range-thumb {
         width: 100%;
     }
 }
+
 
 
