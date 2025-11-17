@@ -35,10 +35,12 @@ window.addEventListener('load', () => {
     let dragStartX, dragStartY;
 
     // --- Logic for Intro Screen ---
-    setTimeout(() => {
-        introScreen.classList.remove('active');
-        styleScreen.classList.add('active');
-    }, 5000);
+    setTimeout(() => {
+        document.body.classList.add('show-background'); 
+
+        introScreen.classList.remove('active');
+        styleScreen.classList.add('active');
+    }, 5000);
 
     // --- Logic for Style Selection ---
     document.querySelector('.style-card').addEventListener('click', (e) => {
@@ -163,4 +165,5 @@ window.addEventListener('load', () => {
         duringDrag(getTouchPos(canvas, e));
     });
 });
+
 
