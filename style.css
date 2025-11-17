@@ -15,6 +15,13 @@ body {
     margin: 0;
 }
 
+body.show-background {
+    background-image: url('your-background-image.jpg'); /* <-- Put your new image file name here */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
 .screen {
     display: none;
 }
@@ -303,4 +310,5 @@ input[type="range"]::-moz-range-thumb {
         width: 100%;
     }
 }
+
 
