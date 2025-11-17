@@ -89,6 +89,11 @@ window.addEventListener('load', () => {
         drawImages();
     });
 
+  rotateBackBtn.addEventListener('click', () => {
+        band.rotation = (band.rotation - 15 + 360) % 360;
+        drawImages();
+    });
+
     scaleSlider.addEventListener('input', (e) => {
         band.scale = parseFloat(e.target.value);
         scaleValue.textContent = `${band.scale.toFixed(1)}x`;
@@ -158,3 +163,4 @@ window.addEventListener('load', () => {
         duringDrag(getTouchPos(canvas, e));
     });
 });
+
