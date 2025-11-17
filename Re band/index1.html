@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RE Band Factory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="main-container">
+
+        <div id="intro-screen" class="screen active">
+            <img src="re-logo.png" alt="RE Logo" class="intro-logo">
+            <p class="typing-sentence">Welcome to the RE Factory...</p>
+        </div>
+
+        <div id="style-select-screen" class="screen">
+            <div class="panel">
+                <h2>Choose Your Style</h2>
+                <div class="style-options">
+                    <div class="style-card" data-style="re-band.png">
+                        <img src="re-band.png" alt=Re Band">
+                        <span>Re Band</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="upload-screen" class="screen">
+            <div class="panel upload-panel">
+                <h2>Click to upload your picture</h2>
+                <p>PNG, JPG up to 10MB</p>
+                <input type="file" id="imageUpload" accept="image/*">
+            </div>
+        </div>
+
+       <div id="editor-screen" class="screen">
+            <div class="editor-panel">
+                <canvas id="editorCanvas"></canvas>
+            </div>
+
+            <div class="control-panel slider-container">
+                <span>SIZE:</span>
+                <input type="range" id="scaleSlider" min="0.2" max="3" value="1" step="0.05">
+                <span id="scaleValue">1.0x</span>
+            </div>
+
+            <div class="editor-controls">
+                <button id="rotateBtn"><img src="rotate-icon.svg" alt="Rotate"> ROTATE</button>
+                <button id="downloadBtn" class="primary-btn"><img src="download-icon.svg" alt="Download"> DOWNLOAD</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
