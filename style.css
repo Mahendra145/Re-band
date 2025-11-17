@@ -15,11 +15,11 @@ body {
     margin: 0;
 }
 
-body.show-background {
-    background-image: url('background-image.png'); /* <-- Put your new image file name here */
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+body.show-background { 
+    background-color: #0a0a0a;
+    background-image: radial-gradient(circle at top center, var(--primary-shadow) 0%, #0a0a0a 70%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .screen {
@@ -310,6 +310,7 @@ input[type="range"]::-moz-range-thumb {
         width: 100%;
     }
 }
+
 
 
 
