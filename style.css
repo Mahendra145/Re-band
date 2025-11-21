@@ -361,7 +361,7 @@ body.show-background .floating-mascot {
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(60px); /* Moves down 60px */
+        transform: translateY(250px); /* Moves down 60px */
     }
     100% {
         transform: translateY(0px); /* Moves back up */
@@ -374,6 +374,7 @@ body.show-background .floating-mascot {
         display: none;
     }
 }
+
 
 
 
