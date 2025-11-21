@@ -325,6 +325,55 @@ input[type="range"]::-moz-range-thumb {
     }
 }
 
+/* --- FLOATING MASCOT STYLES --- */
+
+.floating-mascot {
+    position: fixed;
+    width: 120px; /* Adjust this size if needed */
+    z-index: -1;  /* Keeps them BEHIND your buttons and panels */
+    opacity: 0;   /* Hidden by default (for intro) */
+    transition: opacity 2s ease; /* Smooth fade-in */
+}
+
+/* Positioning the Left Octopus */
+.floating-mascot.left-side {
+    left: 20px;
+    top: 20%;
+}
+
+/* Positioning the Right Octopus */
+.floating-mascot.right-side {
+    right: 20px;
+    top: 40%; /* Offset slightly so they don't move in sync */
+}
+
+/* ONLY show them when the background is active (after intro) */
+body.show-background .floating-mascot {
+    opacity: 0.6; /* Slight transparency so they aren't distracting */
+    
+    /* The Animation Magic */
+    animation: floatVertical 6s ease-in-out infinite;
+}
+
+/* The Animation Keyframes (Up and Down motion) */
+@keyframes floatVertical {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(60px); /* Moves down 60px */
+    }
+    100% {
+        transform: translateY(0px); /* Moves back up */
+    }
+}
+
+/* Hide them on mobile so they don't block the buttons */
+@media (max-width: 800px) {
+    .floating-mascot {
+        display: none;
+    }
+}
 
 
 
