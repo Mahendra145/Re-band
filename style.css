@@ -15,10 +15,24 @@ body {
     margin: 0;
 }
 
-body.show-background { 
-    background-color: #0a0a0a;
-    background-image: radial-gradient(circle at top center, var(--primary-shadow) 0%, #0a0a0a 70%);
-    background-repeat: no-repeat;
+body.show-background {
+    background-color: #050505;
+    
+    /* This creates a 3-layer effect: Vignette + Grid Lines */
+    background-image: 
+        /* Layer 1: A dark fade from the corners (Vignette) */
+        radial-gradient(circle at center, transparent 10%, #000000 90%),
+        
+        /* Layer 2: Horizontal purple lines */
+        linear-gradient(rgba(138, 43, 226, 0.15) 1px, transparent 1px),
+        
+        /* Layer 3: Vertical purple lines */
+        linear-gradient(90deg, rgba(138, 43, 226, 0.15) 1px, transparent 1px);
+
+    /* This sets the size of the grid squares */
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+    
+    background-position: center center;
     background-attachment: fixed;
 }
 
@@ -310,6 +324,7 @@ input[type="range"]::-moz-range-thumb {
         width: 100%;
     }
 }
+
 
 
 
