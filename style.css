@@ -325,55 +325,6 @@ input[type="range"]::-moz-range-thumb {
     }
 }
 
-/* --- FLOATING MASCOT STYLES --- */
-
-.floating-mascot {
-    position: fixed;
-    width: 120px; /* Adjust this size if needed */
-    z-index: -1;  /* Keeps them BEHIND your buttons and panels */
-    opacity: 0;   /* Hidden by default (for intro) */
-    transition: opacity 2s ease; /* Smooth fade-in */
-}
-
-/* Positioning the Left Octopus */
-.floating-mascot.left-side {
-    left: 20px;
-    top: 20%;
-}
-
-/* Positioning the Right Octopus */
-.floating-mascot.right-side {
-    right: 20px;
-    top: 40%; /* Offset slightly so they don't move in sync */
-}
-
-/* ONLY show them when the background is active (after intro) */
-body.show-background .floating-mascot {
-    opacity: 0.6; /* Slight transparency so they aren't distracting */
-    
-    /* The Animation Magic */
-    animation: floatVertical 6s ease-in-out infinite;
-}
-
-/* The Animation Keyframes (Up and Down motion) */
-@keyframes floatVertical {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(250px); /* Moves down 60px */
-    }
-    100% {
-        transform: translateY(0px); /* Moves back up */
-    }
-}
-
-/* Hide them on mobile so they don't block the buttons */
-@media (max-width: 800px) {
-    .floating-mascot {
-        display: none;
-    }
-}
 
 .marquee-border {
     position: fixed;
@@ -390,53 +341,60 @@ body.show-background .marquee-border {
     opacity: 0.5; /* Semi-transparent white */
 }
 
+/* --- BORDER MARQUEE STYLES (Seamless Loop) --- */
+
+.marquee-border {
+    position: fixed;
+    z-index: -2; 
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex; /* Puts the two spans side-by-side */
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+/* Show text only when background is active */
+body.show-background .marquee-border {
+    opacity: 0.5; 
+}
+
 .marquee-border span {
-    display: inline-block;
-    font-family: monospace; /* Tech look */
+    display: block;
+    font-family: monospace;
     font-weight: bold;
     color: #ffffff;
     text-transform: uppercase;
     font-size: 14px;
     letter-spacing: 2px;
+    flex-shrink: 0; /* Prevents text from squishing */
+    width: 100%;    /* Ensures each span takes full width for calculation */
+    text-align: center;
 }
 
-/* --- POSITIONS & ANIMATIONS --- */
+/* --- POSITIONS --- */
 
-/* TOP: Moves Left */
 .top-border {
     top: 10px;
     left: 0;
     width: 100%;
-    text-align: center;
-}
-.top-border span {
-    animation: scrollLeft 15s linear infinite;
 }
 
-/* BOTTOM: Moves Right */
 .bottom-border {
     bottom: 10px;
     left: 0;
     width: 100%;
-    text-align: center;
-}
-.bottom-border span {
-    animation: scrollRight 15s linear infinite;
 }
 
-/* LEFT: Moves Up (We rotate it -90deg) */
+/* Rotated Borders */
 .left-border {
     top: 50%;
-    left: -40vh; /* Adjust based on length of text */
-    width: 100vh; /* Use height as width because of rotation */
+    left: -40vh; 
+    width: 100vh; 
     transform: rotate(-90deg);
     transform-origin: center;
 }
-.left-border span {
-    animation: scrollRight 15s linear infinite;
-}
 
-/* RIGHT: Moves Down (We rotate it 90deg) */
 .right-border {
     top: 50%;
     right: -40vh;
@@ -444,33 +402,39 @@ body.show-background .marquee-border {
     transform: rotate(90deg);
     transform-origin: center;
 }
-.right-border span {
-    animation: scrollLeft 15s linear infinite;
+
+/* --- ANIMATIONS (The seamless magic) --- */
+
+/* Top and Right use "scrollLeft" logic */
+.top-border span, .right-border span {
+    animation: scrollSeamlessLeft 10s linear infinite;
 }
 
-
-/* --- DEFINING THE SCROLL MOVEMENTS --- */
-
-@keyframes scrollLeft {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
+/* Bottom and Left use "scrollRight" logic */
+.bottom-border span, .left-border span {
+    animation: scrollSeamlessRight 10s linear infinite;
 }
 
-@keyframes scrollRight {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(100%); }
+/* Seamless Logic: 
+   We move the text exactly -100%. 
+   Because we have two identical copies, 
+   when the first one ends, the second one is exactly where the first one started.
+   This creates an invisible instant reset.
+*/
+
+@keyframes scrollSeamlessLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
 
-/* Hide borders on mobile to keep it clean */
+@keyframes scrollSeamlessRight {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+
+/* Hide on mobile */
 @media (max-width: 600px) {
     .marquee-border {
         display: none;
     }
 }
-
-
-
-
-
-
-
