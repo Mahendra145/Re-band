@@ -367,9 +367,13 @@ body.show-background .marquee-border {
     text-transform: uppercase;
     font-size: 14px;
     letter-spacing: 2px;
-    flex-shrink: 0; /* Prevents text from squishing */
-    width: 100%;    /* Ensures each span takes full width for calculation */
-    text-align: center;
+    flex-shrink: 0;
+    
+    /* Changed width from 100% to auto so no huge gaps! */
+    width: auto; 
+    
+    /* This controls exactly how much space is between the sentences */
+    padding-right: 30px; 
 }
 
 /* --- POSITIONS --- */
@@ -487,5 +491,6 @@ body.show-background .corner-mascot {
         display: none;
     }
 }
+
 
 
