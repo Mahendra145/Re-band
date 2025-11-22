@@ -373,24 +373,25 @@ body.show-background .marquee-border {
 }
 
 /* --- POSITIONS --- */
-
 .top-border {
     top: 10px;
-    left: 0;
-    width: 100%;
+    left: 60px;
+    right: 60px;
+    width: auto; /* Auto allows left/right to determine the width */
 }
 
 .bottom-border {
     bottom: 10px;
-    left: 0;
-    width: 100%;
+    left: 60px;
+    right: 60px;
+    width: auto;
 }
-
+/* Rotated Borders */
 /* Rotated Borders */
 .left-border {
     top: 50%;
     left: -40vh; 
-    width: 100vh; 
+    width: calc(100vh - 120px); /* Shorten the height to leave gaps at corners */
     transform: rotate(-90deg);
     transform-origin: center;
 }
@@ -398,7 +399,7 @@ body.show-background .marquee-border {
 .right-border {
     top: 50%;
     right: -40vh;
-    width: 100vh;
+    width: calc(100vh - 120px); /* Shorten the height to leave gaps at corners */
     transform: rotate(90deg);
     transform-origin: center;
 }
@@ -438,3 +439,4 @@ body.show-background .marquee-border {
         display: none;
     }
 }
+
