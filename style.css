@@ -367,11 +367,10 @@ body.show-background .marquee-border {
     text-transform: uppercase;
     font-size: 14px;
     letter-spacing: 2px;
-    flex-shrink: 0; 
-    width: 100%;    /* <--- THIS IS THE PROBLEM */
-    text-align: center; /* <--- THIS IS ALSO PART OF THE PROBLEM */
+    flex-shrink: 0; /* Prevents text from squishing */
+    width: 100%;    /* Ensures each span takes full width for calculation */
+    text-align: center;
 }
-
 /* --- POSITIONS --- */
 .top-border {
     top: 10px;
@@ -487,6 +486,7 @@ body.show-background .corner-mascot {
         display: none;
     }
 }
+
 
 
 
