@@ -440,3 +440,52 @@ body.show-background .marquee-border {
     }
 }
 
+/* --- CORNER MASCOT STYLES --- */
+
+.corner-mascot {
+    position: fixed;
+    width: 50px; /* Sized to fit nicely in the 60px corner gap */
+    height: auto;
+    z-index: -2; /* Same layer as the text borders */
+    opacity: 0; /* Hidden initially for intro */
+    transition: opacity 1s ease;
+    pointer-events: none; /* Won't block any clicks */
+}
+
+/* Show mascots only when background is active (after intro) */
+body.show-background .corner-mascot {
+    opacity: 1; /* Fully visible */
+}
+
+/* --- POSITIONING EACH CORNER --- */
+
+.corner-mascot.top-left {
+    top: 10px;
+    left: 10px;
+}
+
+.corner-mascot.top-right {
+    top: 10px;
+    right: 10px;
+    transform: scaleX(-1); /* Flips the image horizontally to face inward */
+}
+
+.corner-mascot.bottom-left {
+    bottom: 10px;
+    left: 10px;
+}
+
+.corner-mascot.bottom-right {
+    bottom: 10px;
+    right: 10px;
+    transform: scaleX(-1); /* Flips the image horizontally to face inward */
+}
+
+/* Hide on small mobile screens to keep it clean */
+@media (max-width: 600px) {
+    .corner-mascot {
+        display: none;
+    }
+}
+
+
