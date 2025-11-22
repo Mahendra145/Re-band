@@ -367,13 +367,9 @@ body.show-background .marquee-border {
     text-transform: uppercase;
     font-size: 14px;
     letter-spacing: 2px;
-    flex-shrink: 0;
-    
-    /* Changed width from 100% to auto so no huge gaps! */
-    width: auto; 
-    
-    /* This controls exactly how much space is between the sentences */
-    padding-right: 30px; 
+    flex-shrink: 0; 
+    width: 100%;    /* <--- THIS IS THE PROBLEM */
+    text-align: center; /* <--- THIS IS ALSO PART OF THE PROBLEM */
 }
 
 /* --- POSITIONS --- */
@@ -491,6 +487,7 @@ body.show-background .corner-mascot {
         display: none;
     }
 }
+
 
 
 
