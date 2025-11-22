@@ -375,6 +375,100 @@ body.show-background .floating-mascot {
     }
 }
 
+.marquee-border {
+    position: fixed;
+    z-index: -2; /* Behind Octopus (-1), but in front of background */
+    overflow: hidden;
+    white-space: nowrap;
+    pointer-events: none; /* Let clicks pass through to buttons */
+    opacity: 0; /* Hidden during intro */
+    transition: opacity 1s ease;
+}
+
+/* Show text only when background is active */
+body.show-background .marquee-border {
+    opacity: 0.5; /* Semi-transparent white */
+}
+
+.marquee-border span {
+    display: inline-block;
+    font-family: monospace; /* Tech look */
+    font-weight: bold;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+/* --- POSITIONS & ANIMATIONS --- */
+
+/* TOP: Moves Left */
+.top-border {
+    top: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.top-border span {
+    animation: scrollLeft 15s linear infinite;
+}
+
+/* BOTTOM: Moves Right */
+.bottom-border {
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.bottom-border span {
+    animation: scrollRight 15s linear infinite;
+}
+
+/* LEFT: Moves Up (We rotate it -90deg) */
+.left-border {
+    top: 50%;
+    left: -40vh; /* Adjust based on length of text */
+    width: 100vh; /* Use height as width because of rotation */
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+.left-border span {
+    animation: scrollRight 15s linear infinite;
+}
+
+/* RIGHT: Moves Down (We rotate it 90deg) */
+.right-border {
+    top: 50%;
+    right: -40vh;
+    width: 100vh;
+    transform: rotate(90deg);
+    transform-origin: center;
+}
+.right-border span {
+    animation: scrollLeft 15s linear infinite;
+}
+
+
+/* --- DEFINING THE SCROLL MOVEMENTS --- */
+
+@keyframes scrollLeft {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+@keyframes scrollRight {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+}
+
+/* Hide borders on mobile to keep it clean */
+@media (max-width: 600px) {
+    .marquee-border {
+        display: none;
+    }
+}
+
+
 
 
 
