@@ -92,13 +92,15 @@ body.show-background {
 }
 
 .panel {
-    background-color: var(--panel-color);
+    background-color: #050505; /* SOLID black (matches your background) */
     border: 1px solid var(--primary-color);
     border-radius: 15px;
     padding: 50px;
     text-align: center;
     box-shadow: 0 0 20px var(--primary-shadow);
     backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
 }
 
 .panel h2 {
@@ -186,7 +188,9 @@ body.show-background {
     justify-content: space-between;
     align-items: center;
     gap: 15px;
-    background-color: var(--panel-color);
+    background-color: #050505; /* Solid black */
+    position: relative; /* Ensures z-index works */
+    z-index: 10; /* Sits on top of scrolling text */
     padding: 15px 20px;
     border-radius: 15px;
     border: 1px solid var(--primary-color);
@@ -490,6 +494,7 @@ body.show-background .corner-mascot {
         display: none;
     }
 }
+
 
 
 
