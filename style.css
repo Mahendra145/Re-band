@@ -497,13 +497,13 @@ body.show-background .corner-mascot {
 /* --- MOBILE OVERRIDE (Final Length Fix) --- */
 @media (max-width: 1000px) {
     .left-border {
-        left: calc(-50vh + 100px) !important;
+        left: calc(-50vh + 60px) !important;
         /* Make the bar shorter so it doesn't touch the top/bottom corners */
         width: calc(100vh - 250px) !important; 
     }
 
     .right-border {
-        right: calc(-50vh + 100px) !important;
+        right: calc(-50vh + 60px) !important;
         /* Make the bar shorter so it doesn't touch the top/bottom corners */
         width: calc(100vh - 250px) !important; 
     }
@@ -518,6 +518,7 @@ body.show-background .corner-mascot {
     .panel { transform: scale(0.85); width: 90% !important; }
     .corner-mascot { width: 35px !important; }
 }
+
 
 
 
