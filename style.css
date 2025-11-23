@@ -394,23 +394,24 @@ body.show-background .marquee-border {
     width: auto;
 }
 /* Rotated Borders */
-/* Rotated Borders */
+/* Rotated Borders - UNIVERSAL FIX */
 .left-border {
     top: 50%;
-    left: -40vh; 
-    width: calc(100vh - 120px); /* Shorten the height to leave gaps at corners */
+    /* Move it exactly to the edge using 50% of viewport height */
+    left: calc(-50vh + 40px); 
+    width: calc(100vh - 120px); 
     transform: rotate(-90deg);
     transform-origin: center;
 }
 
 .right-border {
     top: 50%;
-    right: -40vh;
-    width: calc(100vh - 120px); /* Shorten the height to leave gaps at corners */
+    /* Move it exactly to the edge using 50% of viewport height */
+    right: calc(-50vh + 40px);
+    width: calc(100vh - 120px);
     transform: rotate(90deg);
     transform-origin: center;
 }
-
 /* --- ANIMATIONS (The seamless magic) --- */
 
 /* Top and Right use "scrollLeft" logic */
@@ -494,6 +495,7 @@ body.show-background .corner-mascot {
         display: none;
     }
 }
+
 
 
 
