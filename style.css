@@ -494,31 +494,35 @@ body.show-background .corner-mascot {
     }
 }
 
-/* --- MOBILE OVERRIDE (Final Length Fix) --- */
+/* --- MOBILE OVERRIDE (Final Visibility Fix) --- */
 @media (max-width: 1000px) {
+    
+    /* 1. Position the text closer to the edge (20px) so it's not behind the panel */
     .left-border {
-        left: calc(-50vh + 60px) !important;
-        /* Make the bar shorter so it doesn't touch the top/bottom corners */
+        left: calc(-50vh + 20px) !important;
         width: calc(100vh - 250px) !important; 
     }
 
     .right-border {
-        right: calc(-50vh + 60px) !important;
-        /* Make the bar shorter so it doesn't touch the top/bottom corners */
+        right: calc(-50vh + 20px) !important;
         width: calc(100vh - 250px) !important; 
     }
 
-    /* Keep your other existing mobile font fixes below... */
+    /* 2. Shrink the panel width to 80% so it doesn't cover the sides */
+    .panel {
+        transform: scale(0.9); 
+        width: 80% !important; /* Narrower panel reveals the text! */
+    }
+
+    /* Keep the rest of your font fixes... */
     .marquee-border span {
         font-size: 10px !important;
         letter-spacing: 1px !important;
         padding-right: 15px !important;
     }
     .intro-logo { width: 150px !important; }
-    .panel { transform: scale(0.85); width: 90% !important; }
     .corner-mascot { width: 35px !important; }
 }
-
 
 
 
