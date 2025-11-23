@@ -498,14 +498,15 @@ body.show-background .corner-mascot {
 @media (max-width: 1000px) {
     .left-border {
         /* On phones, we calculate the exact edge */
-        left: calc(-50vh + 40px) !important;
+        left: calc(-50vh + 70px) !important;
     }
 
     .right-border {
         /* On phones, we calculate the exact edge */
-        right: calc(-50vh + 40px) !important;
+        right: calc(-50vh + 70px) !important;
     }
 }
+
 
 
 
