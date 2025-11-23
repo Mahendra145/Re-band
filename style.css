@@ -414,12 +414,12 @@ body.show-background .marquee-border {
 
 /* Top and Right use "scrollLeft" logic */
 .top-border span, .right-border span {
-    animation: scrollSeamlessLeft 10s linear infinite;
+    animation: scrollSeamlessLeft 20s linear infinite;
 }
 
 /* Bottom and Left use "scrollRight" logic */
 .bottom-border span, .left-border span {
-    animation: scrollSeamlessRight 10s linear infinite;
+    animation: scrollSeamlessRight 20s linear infinite;
 }
 
 /* Seamless Logic: 
@@ -506,6 +506,7 @@ body.show-background .corner-mascot {
         right: calc(-50vh + 70px) !important;
     }
 }
+
 
 
 
