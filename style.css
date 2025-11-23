@@ -394,21 +394,19 @@ body.show-background .marquee-border {
     width: auto;
 }
 /* Rotated Borders */
-/* Rotated Borders - UNIVERSAL FIX */
+/* Rotated Borders */
 .left-border {
     top: 50%;
-    /* Move it exactly to the edge using 50% of viewport height */
-    left: calc(-50vh + 40px); 
-    width: calc(100vh - 120px); 
+    left: -40vh; 
+    width: calc(100vh - 120px); /* Shorten the height to leave gaps at corners */
     transform: rotate(-90deg);
     transform-origin: center;
 }
 
 .right-border {
     top: 50%;
-    /* Move it exactly to the edge using 50% of viewport height */
-    right: calc(-50vh + 40px);
-    width: calc(100vh - 120px);
+    right: -40vh;
+    width: calc(100vh - 120px); /* Shorten the height to leave gaps at corners */
     transform: rotate(90deg);
     transform-origin: center;
 }
@@ -495,6 +493,7 @@ body.show-background .corner-mascot {
         display: none;
     }
 }
+
 
 
 
