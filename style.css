@@ -494,27 +494,44 @@ body.show-background .corner-mascot {
     }
 }
 
-/* --- MOBILE OVERRIDE (Final Visibility Fix) --- */
+/* --- MOBILE OVERRIDE (The Mask Fix) --- */
 @media (max-width: 1000px) {
     
-    /* 1. Position the text closer to the edge (20px) so it's not behind the panel */
     .left-border {
-        left: calc(-50vh + 20px) !important;
-        width: calc(100vh - 250px) !important; 
+        /* 1. Keep width FULL so the position math doesn't break */
+        width: 100vh !important;
+        
+        /* 2. Position it nicely in the black space (25px from edge) */
+        left: calc(-50vh + 25px) !important;
+        
+        /* 3. Use a Mask to hide the top and bottom corners! */
+        /* This makes the first 15% and last 15% of the bar invisible */
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+        
+        /* 4. Ensure it sits above the background but below the panel */
+        z-index: 1 !important;
     }
 
     .right-border {
-        right: calc(-50vh + 20px) !important;
-        width: calc(100vh - 250px) !important; 
+        /* Same logic for right side */
+        width: 100vh !important;
+        right: calc(-50vh + 25px) !important;
+        
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+        
+        z-index: 1 !important;
     }
 
-    /* 2. Shrink the panel width to 80% so it doesn't cover the sides */
+    /* Shrink Panel to reveal the text */
     .panel {
         transform: scale(0.9); 
-        width: 80% !important; /* Narrower panel reveals the text! */
+        width: 85% !important; 
+        z-index: 10; /* Ensure panel is on top */
     }
 
-    /* Keep the rest of your font fixes... */
+    /* Your existing font fixes... */
     .marquee-border span {
         font-size: 10px !important;
         letter-spacing: 1px !important;
@@ -523,15 +540,3 @@ body.show-background .corner-mascot {
     .intro-logo { width: 150px !important; }
     .corner-mascot { width: 35px !important; }
 }
-
-
-
-
-
-
-
-
-
-
-
-
